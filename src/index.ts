@@ -1,8 +1,12 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
 import uploadRoutes from "./controller/upload.js"
 
 const app = new Hono()
+
+// Enable CORS for frontend
+app.use(cors());
 
 app.route('/', uploadRoutes)
 
